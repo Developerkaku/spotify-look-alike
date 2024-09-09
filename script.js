@@ -195,9 +195,9 @@ async function getSongsNames() {
     // let a = await fetch(`songs/`);
     // console.log(a)
     // let b = await a.text();
-  const owner = 'YOUR_USERNAME'; // Replace with your GitHub username
-  const repo = 'YOUR_REPOSITORY'; // Replace with your repository name
-  const folderPath = 'FOLDER_PATH'; // Replace with the path to the folder you want to list
+  const owner = 'Developerkaku'; // Replace with your GitHub username
+  const repo = 'spotify-lool-alike'; // Replace with your repository name
+  const folderPath = 'songs/'; // Replace with the path to the folder you want to list
 
   const url = `https://api.github.com/repos/${owner}/${repo}/contents/${folderPath}`;
 
