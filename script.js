@@ -199,7 +199,7 @@ async function getSongsNames() {
     //getting the songs list and copying it in the songsNames array
     const url = `https://api.github.com/repos/${owner}/${repo}/contents/${folderPath}`;
 
-    fetch(url)
+    await fetch(url)
         .then(response => response.json())
         .then(data => {
             // Iterate through each item in the folder
