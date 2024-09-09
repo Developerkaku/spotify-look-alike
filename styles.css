@@ -1,0 +1,643 @@
+:root {
+    --borderR: 15px;
+    --borderRSecond: 5px;
+    --accent: white
+        /*#3d3d3d*/
+    ;
+    --playerElementsDisplay: none;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    border-radius: var(--borderR);
+    background-color: rgb(13, 13, 13);
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: var(--borderR);
+    background-color: rgba(255, 253, 253, 0.861);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    color: white;
+    font-family: 'roboto', sans-serif;
+    box-sizing: border-box;
+
+    -webkit-user-select: none;
+    /* Safari */
+    -moz-user-select: none;
+    /* Firefox */
+    -ms-user-select: none;
+    /* Internet Explorer/Edge */
+    user-select: none;
+    /* Standard syntax */
+}
+
+body {
+    overflow: hidden;
+    background-color: black;
+}
+
+#main {
+    width: 100vw;
+    height: 98vh;
+    margin-top: .5%;
+    display: flex;
+}
+
+.main-left {
+    display: flex;
+    flex-direction: column;
+    gap: 2%;
+    margin: .4%;
+    width: 25vw;
+    height: 100%;
+    transition: all 1s;
+}
+
+.menu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 10%;
+    width: 100%;
+    height: 25%;
+    border-radius: var(--borderR);
+    background-color: #121212;
+}
+
+.menu div {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8%;
+    width: 80%;
+    height: 20%;
+    font-size: 1rem;
+    opacity: .7;
+    font-weight: 700;
+}
+
+.menu div:hover {
+    opacity: 1;
+}
+
+.menu div:first-child {
+    gap: 2%;
+    opacity: 1;
+    height: 25%;
+}
+
+.logo svg {
+    fill: white;
+}
+
+.menu div svg {
+    width: fit-content;
+    height: 90%;
+    stroke-width: 1.5;
+}
+
+.library-container {
+    display: flex;
+    flex-direction: column;
+    padding-top: 5%;
+    align-items: center;
+    gap: 5%;
+    width: 100%;
+    min-height: 50%;
+    border-radius: var(--borderR);
+    background-color: #121212;
+}
+
+#lib-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 90%;
+    height: 15%;
+}
+
+.add {
+    display: flex;
+    align-items: center;
+    width: fit-content;
+    font-size: 1rem;
+    font-weight: 700;
+}
+
+.add:first-child {
+    height: 90%;
+    flex-grow: .8;
+    gap: 4%;
+    opacity: .6;
+}
+
+.add:first-child:hover {
+    opacity: 1;
+}
+
+.add:last-child {
+    border-radius: 50%;
+    border-width: .4rem;
+    border-color: transparent;
+    border-style: solid;
+}
+
+.add:last-child:hover {
+    background-color: #5a5a5a;
+    border-color: #5a5a5a;
+}
+
+.add:first-child svg {
+    height: 70%;
+    width: fit-content;
+}
+
+#library {
+    width: 95%;
+    height: 30%;
+    border-radius: var(--borderR);
+    background-color: rgb(60, 60, 60);
+}
+
+#footer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7%;
+    width: 90%;
+    height: fit-content;
+    min-height: 50px;
+    font-size: .7rem;
+    opacity: .7;
+    cursor: pointer;
+}
+
+#footer div {
+    width: fit-content;
+    height: fit-content;
+    margin-top: 3%;
+}
+
+#footer div a {
+    text-decoration: none;
+}
+
+
+.main-right {
+    position: relative;
+    display: flex;
+    flex-grow: 1;
+    flex-direction: column;
+    gap: 2%;
+    margin: .4%;
+    height: 98vh;
+}
+
+.login-bar {
+    display: flex;
+    width: 100%;
+    height: 3.75rem;
+    border-radius: var(--borderR);
+    background-color: #121212;
+}
+
+
+.navigate-btns,
+.login-btns {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    gap: 2%;
+    width: 50%;
+    height: 100%;
+    /* height: 10vh; */
+}
+
+.navigate {
+    cursor: not-allowed;
+    width: 3rem;
+    height: 3rem;
+    margin: 1% 0%;
+    border: 0;
+    border-radius: 50%;
+    background-color: black;
+}
+
+#show,
+#close {
+    display: none;
+}
+
+.login-btns {
+    flex-direction: row-reverse;
+}
+
+.sign-login {
+    font-size: medium;
+    font-weight: bold;
+    width: 6.5rem;
+    height: 3rem;
+    border: 0;
+    border-radius: 3.375rem;
+    color: rgb(0, 0, 0);
+    transition: all .1s;
+}
+
+.sign-login:last-child {
+    color: white;
+    background-color: transparent;
+}
+
+.sign-login:hover {
+    cursor: pointer;
+    scale: 1.1;
+}
+
+.songs {
+    overflow: scroll;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    gap: 2%;
+    width: 100%;
+    height: 85%;
+    border-radius: var(--borderR);
+    background-color: #121212;
+}
+
+.container {
+    width: 100%;
+    height: 100%;
+    border-radius: var(--borderR);
+    background-image: linear-gradient(var(--accent) 0%, transparent 90%);
+}
+
+.songs-header {
+    width: 100%;
+    height: 45%;
+    display: flex;
+    align-items: end;
+    padding: 2%;
+    gap: 2%;
+    background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.4));
+}
+
+#playlistImage {
+    display: flex;
+    align-items: center;
+    width: 10rem;
+    height: 10rem;
+    border-radius: var(--borderR);
+    overflow: clip;
+}
+
+#playlistImage>img {
+    height: 100%;
+    /* border-radius: 10px; */
+}
+
+#title {
+    width: 35em;
+    display: flex;
+    gap: 6%;
+    flex-direction: column;
+    justify-content: end;
+    height: 100%;
+}
+
+#title>h1 {
+    width: 100%;
+    font-size: 6rem;
+    vertical-align: baseline;
+    white-space: normal;
+}
+
+#title span {
+    font-weight: 500;
+}
+
+#title span:first-child::after {
+    content: " •";
+}
+
+.inside-txt {
+    color: #b3b3b3;
+}
+
+.songs-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8%;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, .7));
+}
+
+#songsInfo-container {
+    width: 100%;
+    height: 3rem;
+    display: flex;
+    justify-content: center;
+}
+
+#songsInfo {
+    width: 95%;
+    height: 90%;
+    display: flex;
+    gap: 2%;
+    border-bottom: 1px solid hsla(0, 0%, 100%, .1);
+}
+
+#songsInfo>.numDiv,
+#songsInfo>.title {
+    height: 100%;
+    justify-content: center;
+}
+
+#play-list-options {
+    width: 100%;
+    height: 5rem;
+    padding: 0px 2%;
+}
+
+#play-list-play-btn,
+#play-list-pause-btn {
+    cursor: pointer;
+    background-color: transparent;
+    padding: 0;
+    border: none;
+    height: 100%;
+    width: 5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#play-list-options svg {
+    height: 90%;
+    width: fit-content;
+}
+
+#play-list-options svg:hover {
+    height: 100%;
+}
+
+.song-card {
+    display: flex;
+    gap: 2%;
+    flex-direction: row;
+    align-items: center;
+    width: 95%;
+    height: 4rem;
+    border-radius: var(--borderRSecond);
+}
+
+.song-card:hover {
+    background-color: hsla(0, 0%, 100%, .1);
+}
+
+.numDiv {
+    width: 3rem;
+    height: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: normal;
+}
+
+.cover-img {
+    height: 3rem;
+    width: 3.5rem;
+}
+
+.cover-img>img {
+    height: 100%;
+    border-radius: var(--borderRSecond);
+}
+
+.title {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    height: 70%;
+    font-weight: 400;
+}
+
+.title>span {
+    height: 50%;
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+}
+
+.title a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.title a:hover {
+    text-decoration: underline;
+}
+
+.title>span:first-child {
+    color: #fff;
+    font-size: 1.2rem;
+}
+
+.player {
+    position: absolute;
+    bottom: -100%;
+    display: flex;
+    padding: 1%;
+    /* justify-content: space-around; */
+    width: 99%;
+    height: 6.75rem;
+    margin: 1% auto;
+    background-color: #121212;
+    transition: bottom .75s;
+    box-sizing: border-box;
+}
+
+.player-left {
+    width: 15%;
+    height: 98%;
+}
+
+#player-img {
+    height: 100%;
+    border-radius: var(--borderRSecond);
+    /* mask-image: linear-gradient(to right, rgb(238, 224, 224), rgba(0, 0, 0, 0)); */
+}
+
+.player-right {
+    display: flex;
+    flex-direction: column;
+    /* gap: 2%; */
+    flex-grow: 1;
+    height: 100%;
+}
+
+.song-name {
+    width: fit-content;
+    height: 35%;
+    opacity: .9;
+    margin: auto;
+    font-size: 1.5em;
+    line-height: 130%;
+}
+
+.seek-bar,
+#seek-bar-progress {
+    position: relative;
+    width: 90%;
+    height: .375rem;
+    border-radius: var(--borderR);
+    margin: auto;
+    cursor: pointer;
+    background-color: rgb(99, 99, 99);
+}
+
+#seek-bar-progress {
+    background-color: white;
+    width: 0px;
+    margin: 0%;
+}
+
+.seek-circle {
+    position: absolute;
+    top: -50%;
+    left: var(--seekStart);
+    width:
+        /*2%*/
+        /* 1.5% */
+        .75rem;
+    height:
+        /*275%*/
+        /* 200% */
+        /*125%*/
+        .75rem;
+    border-radius: 50%;
+    background-color: white;
+}
+
+.time {
+    z-index: 0;
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+    height: 40%;
+    /* height: 2.5rem; */
+    margin: auto;
+}
+
+#curr-time,
+#duration {
+    width: 10%;
+    height: 100%;
+}
+
+#duration {
+    text-align: end;
+}
+
+.song-navigation {
+    display: flex;
+    justify-content: center;
+    flex-grow: 1;
+    gap: 6%;
+}
+
+#previous,
+#next,
+#play-pause,
+#backward,
+#forward {
+    width: 2.5rem;
+    height: 2.5rem;
+    opacity: .7;
+    background-color: transparent;
+    border: 0;
+    cursor: pointer;
+}
+
+.song-navigation svg {
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+}
+
+.play {
+    display: block;
+}
+
+.pause {
+    display: none;
+}
+
+#previous:hover,
+#next:hover,
+#play-pause:hover,
+#backward:hover,
+#forward:hover {
+    opacity: 1;
+}
+
+/* @media screen and (max-width: 769px) {
+    body {
+        background: blue;
+    }
+
+    /* .main-right {
+        width: 10%;
+    }
+
+} */
+
+@media screen and (max-width: 769px) {
+body{
+    background-color: blue;
+}
+    .main-left {
+        position: absolute;
+        left: -76%;
+        width: 75%;
+        gap: 1%;
+        z-index: 1;
+        padding-top: 1%;
+        background-color: #121212;
+    }
+
+    .main-right {
+        width: 99vw;
+    }
+
+    #close,
+    #show {
+        display: block;
+        cursor: pointer;
+    }
+
+    #go-back,
+    #go-fwd {
+        display: none;
+    }
+
+    .songs {
+        height: 90%;
+    }
+
+    .songs-header {
+        height: 35%;
+    }
+    .player{
+        background-color: #222222;
+        width: 98%;
+    }
+}
