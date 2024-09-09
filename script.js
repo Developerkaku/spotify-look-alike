@@ -1,9 +1,4 @@
 
- fetch('https://raw.githubusercontent.com/developerkaku/spotify-look-alike/main/songs.jpg')
-    .then(response => response.json())
-    .then(data => console.log(data))
-    .catch(error => console.error('Error fetching file:', error));
-
 //Random color accent to the play list
 
 // const pickable = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f']
@@ -41,8 +36,8 @@ document.getElementById("play-pause").addEventListener("click", () => playMusic(
 document.getElementById("next").addEventListener("click", () => playMusic(currentSong.title, "next"));
 
 document.getElementById("play-list-play-btn").addEventListener("click", () => {
-    playMusic( (currentSong.title) ? currentSong.title : songsNames[0], "play-pause");
-}) 
+    playMusic((currentSong.title) ? currentSong.title : songsNames[0], "play-pause");
+})
 //Seek bar seeking Event listner
 document.getElementsByClassName("seek-bar")[0].addEventListener("click", (e) => {
     updateSeek(e.clientX - e.target.getBoundingClientRect().left);
@@ -71,7 +66,7 @@ function updateSeek(position = 0) {
     } else {
         position = (currentSong.currentTime * seekBarWidth) / songDuration;
     }
-    
+
     seekCircle.style.left = position - seekCircle.clientWidth + "px";
 
     document.getElementById("seek-bar-progress").style.width = position + "px";
@@ -149,7 +144,7 @@ const playMusic = (songName, string = "") => {
             playPause.dataset.songState = "paused";
             break;
         }
-        
+
         case "": {
 
         }
@@ -190,37 +185,37 @@ const imgsIds = new Object();
 var imgFileTypes = new Array(".png", ".jpg", ".jpeg");
 var audioFileTypes = new Array(".ogg", "mp3");
 
+const owner = 'Developerkaku';
+const repo = 'spotify-lool-alike';
+const folderPath = 'songs/';
 
- const owner = 'Developerkaku'; // Replace with your GitHub username
-  const repo = 'spotify-lool-alike'; // Replace with your repository name
-  const folderPath = 'songs/'; // Replace with the path to the folder you want to list
 //Kind of main function to  generate all the songs names form the database(github repo)
 async function getSongsNames() {
     // let a = await fetch(`songs/`);
     // console.log(a)
     // let b = await a.text();
- 
 
-  const url = `https://api.github.com/repos/${owner}/${repo}/contents/${folderPath}`;
+    //getting the songs list and copying it in the songsNames array
+    const url = `https://api.github.com/repos/${owner}/${repo}/contents/${folderPath}`;
 
-  fetch(url)
-    .then(response => response.json())
-    .then(data => {
-      // Iterate through each item in the folder
-      data.forEach(item => {
-        if (item.type === 'file') {
-          console.log(`File: ${item.name} - URL: ${item.download_url}`);
-          // Optionally, fetch the content of the file
-          fetchFileContent(item.download_url);
-        } else if (item.type === 'dir') {
-          console.log(`Directory: ${item.name}`);
-          // Optionally, fetch the content of this directory
-          fetchDirectoryContent(item.path);
-        }
-      });
-    })
-    .catch(error => console.error('Error fetching file list:', error));
-
+    fetch(url)
+        .then(response => response.json())
+        .then(data => {
+            // Iterate through each item in the folder
+            let iterator = 0;
+            data.forEach(item => {
+                if (item.type === 'file') {
+                    console.log(`File: ${item.name} - URL: ${item.download_url}`);
+                    // Optionally, fetch the content of the file
+                    fetchFileContent(item.download_url);
+                } else if (item.type === 'dir') {
+                    songsNames[iterator] = item.name;
+                    // fetchDirectoryContent(item.path);
+                }
+            });
+        })
+        .catch(error => console.error('Error fetching file list:', error));
+console.log(songsNames);
     // let div = document.createElement("div");
     // div.innerHTML = b;
     // let anchors = div.getElementsByTagName("a");
@@ -234,21 +229,21 @@ async function getSongsNames() {
 }
 function fetchFileContent(url) {
     fetch(url)
-      .then(response => response.text())
-      .then(fileContent => console.log('File Content:', fileContent))
-      .catch(error => console.error('Error fetching file content:', error));
-  }
+        .then(response => response.text())
+        .then(fileContent => console.log('File Content:', fileContent))
+        .catch(error => console.error('Error fetching file content:', error));
+}
 
-  function fetchDirectoryContent(directoryPath) {
+function fetchDirectoryContent(directoryPath) {
     const dirUrl = `https://api.github.com/repos/${owner}/${repo}/contents/${directoryPath}`;
     fetch(dirUrl)
-      .then(response => response.json())
-      .then(data => {
-        // Handle the contents of the subdirectory
-        console.log(`Contents of ${directoryPath}:`, data);
-      })
-      .catch(error => console.error('Error fetching directory content:', error));
-  }
+        .then(response => response.json())
+        .then(data => {
+            // Handle the contents of the subdirectory
+            console.log(`Contents of ${directoryPath}:`, data);
+        })
+        .catch(error => console.error('Error fetching directory content:', error));
+}
 
 //Function to handle image loading errors
 // function loadImage(src, imgExtId){
