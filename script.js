@@ -187,6 +187,7 @@ var audioFileTypes = new Array(".ogg", "mp3");
 //Kind of main function to  generate all the songs names form the database(github repo)
 async function getSongsNames() {
     let a = await fetch(`songs/`);
+    console.log(a)
     let b = await a.text();
 
     let div = document.createElement("div");
