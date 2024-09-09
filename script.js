@@ -211,7 +211,7 @@ async function getSongsNames() {
                 } else if (item.type === 'dir') {
                     songsNames[iterator] = item.name;
                     iterator++;
-                    console.log(iterator)
+                    console.log(iterator);
                     // fetchDirectoryContent(item.path);
                 }
             });
