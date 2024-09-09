@@ -209,7 +209,9 @@ async function getSongsNames() {
                     // Optionally, fetch the content of the file
                     fetchFileContent(item.download_url);
                 } else if (item.type === 'dir') {
-                    songsNames[iterator++] = item.name;
+                    songsNames[iterator] = item.name;
+                    iterator++;
+                    console.log(iterator)
                     // fetchDirectoryContent(item.path);
                 }
             });
