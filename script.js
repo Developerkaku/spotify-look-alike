@@ -206,18 +206,13 @@ async function getSongsNames() {
             // Iterate through each item in the folder
             let iterator = 0;
             data.forEach(item => {
-                if (item.type === 'file') {
-                    console.log(`File: ${item.name} - URL: ${item.download_url}`);
-                    // Optionally, fetch the content of the file
-                    fetchFileContent(item.download_url);
-                } else if (item.type === 'dir') {
+                if (item.type === 'dir') {
                     songsNames.push(item.name);
                     // fetchDirectoryContent(item.path);
                 }
             });
         })
         .catch(error => console.error('Error fetching file list:', error));
-console.log(songsNames);
     // let div = document.createElement("div");
     // div.innerHTML = b;
     // let anchors = div.getElementsByTagName("a");
@@ -289,6 +284,7 @@ async function displaySongs() {
 
         let img = document.createElement("img");
         img.src = `https://raw.githubusercontent.com/${owner}/${repo}/main/songs/${songsNames[iterator]}/img.jpg`;
+        console.log(img.src);
         // img.src = `songs/${songsNames[iterator]}/img.jpg`;
 
         imgContainer.appendChild(img);
