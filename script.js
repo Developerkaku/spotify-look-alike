@@ -95,7 +95,6 @@ const playMusic = (songName, string = "") => {
 
     let index = songsNames.indexOf(songName);
     let playPause = document.getElementById("play-pause");
-    let playListBtn = document.getElementById("play-list-play-btn");
     let playBtns = document.getElementsByClassName("play");
     let pauseBtns = document.getElementsByClassName("pause");
 
@@ -111,17 +110,18 @@ const playMusic = (songName, string = "") => {
             break;
         }
 
-        case "forward": {
-            currentSong.currentTime += 3;
-            break;
-        }
+        // case "forward": {
+        //     currentSong.currentTime += 3;
+        //     break;
+        // }
 
-        case "backward": {
-            currentSong.currentTime -= 3;
-            break;
-        }
+        // case "backward": {
+        //     currentSong.currentTime -= 3;
+        //     break;
+        // }
 
-        case "play-pause": {//change the image
+        case "play-pause": {
+            //change the image on the player and the playList
 
             if (playPause.dataset.songState === "paused") {
                 currentSong.play();
@@ -150,7 +150,8 @@ const playMusic = (songName, string = "") => {
         }
     }
     if (index >= 0 && index < songsNames.length) {
-        newSong = new Audio(`songs/${songsNames[index]}/audio.mp3`);
+        newSong = new Audio(`https://raw.githubusercontent.com/${owner}/${repo}/main/songs/${songsNames[iterator]}/audio.mp3`);
+        // newSong = new Audio(`songs/${songsNames[index]}/audio.mp3`);
     } else if (index < 0) {
         currentSong.currentTime = 0;
     } else if (index == songsNames.length) {
@@ -169,7 +170,8 @@ const playMusic = (songName, string = "") => {
     pauseBtns[0].style.display = "block";
     playListBtn.title = "pause NCS";
 
-    document.getElementById("player-img").src = `songs/${songsNames[index]}/img.jpg`
+    document.getElementById("player-img").src = `https://raw.githubusercontent.com/${owner}/${repo}/main/songs/${songsNames[iterator]}/img.jpg`
+    // document.getElementById("player-img").src = `songs/${songsNames[index]}/img.jpg`
     document.getElementsByClassName("song-name")[0].innerHTML = songsNames[index].split("@")[0];
 
     currentSong.src = newSong.src;
@@ -286,7 +288,8 @@ async function displaySongs() {
         imgContainer.className = "cover-img";
 
         let img = document.createElement("img");
-        img.src = `songs/${songsNames[iterator]}/img.jpg`;
+        img.src = `https://raw.githubusercontent.com/${owner}/${repo}/main/songs/${songsNames[iterator]}/img.jpg`;
+        // img.src = `songs/${songsNames[iterator]}/img.jpg`;
 
         imgContainer.appendChild(img);
 
