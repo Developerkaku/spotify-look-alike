@@ -190,14 +190,16 @@ const imgsIds = new Object();
 var imgFileTypes = new Array(".png", ".jpg", ".jpeg");
 var audioFileTypes = new Array(".ogg", "mp3");
 
+
+ const owner = 'Developerkaku'; // Replace with your GitHub username
+  const repo = 'spotify-lool-alike'; // Replace with your repository name
+  const folderPath = 'songs/'; // Replace with the path to the folder you want to list
 //Kind of main function to  generate all the songs names form the database(github repo)
 async function getSongsNames() {
     // let a = await fetch(`songs/`);
     // console.log(a)
     // let b = await a.text();
-  const owner = 'Developerkaku'; // Replace with your GitHub username
-  const repo = 'spotify-lool-alike'; // Replace with your repository name
-  const folderPath = 'songs/'; // Replace with the path to the folder you want to list
+ 
 
   const url = `https://api.github.com/repos/${owner}/${repo}/contents/${folderPath}`;
 
