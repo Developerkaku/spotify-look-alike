@@ -1,8 +1,7 @@
-fetch('songs/')
+ fetch('https://raw.githubusercontent.com/developerkaku/spotify-look-alike/main/songs/')
     .then(response => response.json())
     .then(data => console.log(data))
     .catch(error => console.error('Error fetching file:', error));
-
 //Random color accent to the play list
 
 // const pickable = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f']
