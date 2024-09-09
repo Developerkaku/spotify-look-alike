@@ -1,7 +1,9 @@
+
  fetch('https://raw.githubusercontent.com/developerkaku/spotify-look-alike/main/songs.jpg')
     .then(response => response.json())
     .then(data => console.log(data))
     .catch(error => console.error('Error fetching file:', error));
+
 //Random color accent to the play list
 
 // const pickable = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f']
@@ -190,21 +192,61 @@ var audioFileTypes = new Array(".ogg", "mp3");
 
 //Kind of main function to  generate all the songs names form the database(github repo)
 async function getSongsNames() {
-    let a = await fetch(`songs/`);
-    console.log(a)
-    let b = await a.text();
+    // let a = await fetch(`songs/`);
+    // console.log(a)
+    // let b = await a.text();
+  const owner = 'YOUR_USERNAME'; // Replace with your GitHub username
+  const repo = 'YOUR_REPOSITORY'; // Replace with your repository name
+  const folderPath = 'FOLDER_PATH'; // Replace with the path to the folder you want to list
 
-    let div = document.createElement("div");
-    div.innerHTML = b;
-    let anchors = div.getElementsByTagName("a");
-    for (const iterator of anchors) {
-        if (iterator.title != "" && iterator.title != "..") {
-            songsNames.push(iterator.title);
+  const url = `https://api.github.com/repos/${owner}/${repo}/contents/${folderPath}`;
+
+  fetch(url)
+    .then(response => response.json())
+    .then(data => {
+      // Iterate through each item in the folder
+      data.forEach(item => {
+        if (item.type === 'file') {
+          console.log(`File: ${item.name} - URL: ${item.download_url}`);
+          // Optionally, fetch the content of the file
+          fetchFileContent(item.download_url);
+        } else if (item.type === 'dir') {
+          console.log(`Directory: ${item.name}`);
+          // Optionally, fetch the content of this directory
+          fetchDirectoryContent(item.path);
         }
-    }
+      });
+    })
+    .catch(error => console.error('Error fetching file list:', error));
+
+    // let div = document.createElement("div");
+    // div.innerHTML = b;
+    // let anchors = div.getElementsByTagName("a");
+    // for (const iterator of anchors) {
+    //     if (iterator.title != "" && iterator.title != "..") {
+    //         songsNames.push(iterator.title);
+    //     }
+    // }
 
     displaySongs();
 }
+function fetchFileContent(url) {
+    fetch(url)
+      .then(response => response.text())
+      .then(fileContent => console.log('File Content:', fileContent))
+      .catch(error => console.error('Error fetching file content:', error));
+  }
+
+  function fetchDirectoryContent(directoryPath) {
+    const dirUrl = `https://api.github.com/repos/${owner}/${repo}/contents/${directoryPath}`;
+    fetch(dirUrl)
+      .then(response => response.json())
+      .then(data => {
+        // Handle the contents of the subdirectory
+        console.log(`Contents of ${directoryPath}:`, data);
+      })
+      .catch(error => console.error('Error fetching directory content:', error));
+  }
 
 //Function to handle image loading errors
 // function loadImage(src, imgExtId){
