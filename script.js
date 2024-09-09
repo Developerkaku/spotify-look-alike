@@ -150,7 +150,7 @@ const playMusic = (songName, string = "") => {
         }
     }
     if (index >= 0 && index < songsNames.length) {
-        newSong = new Audio(`https://raw.githubusercontent.com/${owner}/${repo}/main/songs/${songsNames[iterator]}/audio.mp3`);
+        newSong = new Audio(`https://raw.githubusercontent.com/${owner}/${repo}/main/songs/${songsNames[index]}/audio.mp3`);
         // newSong = new Audio(`songs/${songsNames[index]}/audio.mp3`);
     } else if (index < 0) {
         currentSong.currentTime = 0;
