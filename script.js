@@ -211,11 +211,11 @@ async function getSongsNames() {
         if (item.type === 'file') {
           console.log(`File: ${item.name} - URL: ${item.download_url}`);
           // Optionally, fetch the content of the file
-          fetchFileContent(item.download_url);
+        //   fetchFileContent(item.download_url);
         } else if (item.type === 'dir') {
           console.log(`Directory: ${item.name}`);
           // Optionally, fetch the content of this directory
-          fetchDirectoryContent(item.path);
+        //   fetchDirectoryContent(item.path);
         }
       });
     })
