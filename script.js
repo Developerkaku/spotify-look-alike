@@ -181,7 +181,6 @@ const playMusic = (songName, string = "") => {
 }
 
 var songsNames = new Array();
-const imgsIds = new Object();
 
 // Not being used in this script but will update soon
 var imgFileTypes = new Array(".png", ".jpg", ".jpeg");
