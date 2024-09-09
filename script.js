@@ -1,4 +1,4 @@
- fetch('https://raw.githubusercontent.com/developerkaku/spotify-look-alike/main/songs/')
+ fetch('https://raw.githubusercontent.com/developerkaku/spotify-look-alike/main/songs.jpg')
     .then(response => response.json())
     .then(data => console.log(data))
     .catch(error => console.error('Error fetching file:', error));
