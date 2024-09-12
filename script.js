@@ -12,6 +12,21 @@
 // let root = document.querySelector(":root");
 // root.style.setProperty('--accent', color);
 
+const title = document.querySelector('#title>h1');
+const titleContainer = document.querySelector('#title');
+
+function resize_to_fit() {
+    // alert("as");
+    let fontSize = window.getComputedStyle(title).fontSize;
+    title.style.fontSize = (parseFloat(fontSize) - 1) + 'px';
+    //   alert(titleContainer.clientHeight);
+    //   alert(fontSize +" "+ titleContainer.clientHeight )
+    if (title.clientHeight >= ((titleContainer.clientHeight) / 2)) {
+        // alert("in");
+        resize_to_fit();
+    }
+}
+
 //Missing functionality
 function a() {
     alert("This functionality is yet to be configured !!")
@@ -44,9 +59,9 @@ document.getElementsByClassName("seek-bar")[0].addEventListener("click", (e) => 
 });
 
 //Song Variables
-let currentSong = new Audio();
-let previuosSong = new Audio();
-let songDuration;
+var currentSong = new Audio();
+var previuosSong = new Audio();
+var songDuration;
 
 //Event listener for the song so that the player looks alive !!
 currentSong.addEventListener("timeupdate", () => {
@@ -84,9 +99,7 @@ const playMusic = (songName, string = "") => {
 
     if (window.getComputedStyle(player).bottom != "0px") {
         player.style.bottom = "0";
-        // const songCards = document.querySelectorAll(".song-card");
-        // songCards[songCards.length - 1].style.borderBottom = "15vh";
-        // document.querySelector(".container").style.marginBottom = "15%";
+        
         let extDiv = document.createElement("div");
         extDiv.className = "song-card";
         extDiv.style.height = "6.75rem";
@@ -130,7 +143,7 @@ const playMusic = (songName, string = "") => {
 
                 playBtns[0].style.display = "none";
                 pauseBtns[0].style.display = "block";
-                playListBtn.title = "pause NCS";
+                pauseBtns[0].title = "pause NCS";
                 playPause.dataset.songState = "playing";
                 break;
             }
@@ -140,13 +153,9 @@ const playMusic = (songName, string = "") => {
 
             pauseBtns[0].style.display = "none";
             playBtns[0].style.display = "block";
-            playListBtn.title = "play NCS";
+            playBtns[0].title = "play NCS";
             playPause.dataset.songState = "paused";
             break;
-        }
-
-        case "": {
-
         }
     }
     if (index >= 0 && index < songsNames.length) {
@@ -168,9 +177,9 @@ const playMusic = (songName, string = "") => {
 
     playBtns[0].style.display = "none";
     pauseBtns[0].style.display = "block";
-    playListBtn.title = "pause NCS";
+    pauseBtns[0].title = "pause NCS";
 
-    document.getElementById("player-img").src = `https://raw.githubusercontent.com/${owner}/${repo}/main/songs/${songsNames[iterator]}/img.jpg`
+    document.getElementById("player-img").src = `https://raw.githubusercontent.com/${owner}/${repo}/main/songs/${songsNames[index]}/img.jpg`
     // document.getElementById("player-img").src = `songs/${songsNames[index]}/img.jpg`
     document.getElementsByClassName("song-name")[0].innerHTML = songsNames[index].split("@")[0];
 
@@ -203,7 +212,6 @@ async function getSongsNames() {
         .then(response => response.json())
         .then(data => {
             // Iterate through each item in the folder
-            let iterator = 0;
             data.forEach(item => {
                 if (item.type === 'dir') {
                     songsNames.push(item.name);
@@ -223,13 +231,14 @@ async function getSongsNames() {
 
     displaySongs();
 }
+//Not being used
 function fetchFileContent(url) {
     fetch(url)
         .then(response => response.text())
         .then(fileContent => console.log('File Content:', fileContent))
         .catch(error => console.error('Error fetching file content:', error));
 }
-
+//Not being used
 function fetchDirectoryContent(directoryPath) {
     const dirUrl = `https://api.github.com/repos/${owner}/${repo}/contents/${directoryPath}`;
     fetch(dirUrl)
@@ -261,8 +270,6 @@ function fetchDirectoryContent(directoryPath) {
 async function displaySongs() {
     let container = document.querySelector(".songs-container");
 
-    // let playListBtn = document.getEleme
-
     for (let iterator = 0; iterator < songsNames.length; iterator++) {
 
         let div = document.createElement("div");
@@ -283,7 +290,6 @@ async function displaySongs() {
 
         let img = document.createElement("img");
         img.src = `https://raw.githubusercontent.com/${owner}/${repo}/main/songs/${songsNames[iterator]}/img.jpg`;
-        console.log(img.src);
         // img.src = `songs/${songsNames[iterator]}/img.jpg`;
 
         imgContainer.appendChild(img);
@@ -330,20 +336,14 @@ async function displaySongs() {
 }
 
 //CALLING THE KINDA main FUNCTION !!!
-getSongsNames();
+// getSongsNames();
+// resize_to_fit();
 
-const title = document.querySelector('#title>h1');
-const titleContainer = document.querySelector('#title');
-
-function resize_to_fit() {
-    // alert("as");
-    let fontSize = window.getComputedStyle(title).fontSize;
-    title.style.fontSize = (parseFloat(fontSize) - 1) + 'px';
-    //   alert(titleContainer.clientHeight);
-    //   alert(fontSize +" "+ titleContainer.clientHeight )
-    if (title.clientHeight >= ((titleContainer.clientHeight) / 2)) {
-        // alert("in");
-        resize_to_fit();
-    }
+// window.onresize = ()=>{
+//     resize_to_fit();
+// }
+window.onload = ()=>{
+    getSongsNames();
+    resize_to_fit();
 }
-resize_to_fit();
+
