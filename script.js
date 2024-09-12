@@ -343,6 +343,8 @@ async function displaySongs() {
 //     resize_to_fit();
 // }
 window.onload = ()=>{
+    //Alert the user about the restrictions of the web site 
+    alert(" This web page uses GitHub api to retrieve files\n Since the API does not use any private/public access keys,\nthe retrieval of the files is limited.\n So, Only 60 reloads(retrievals) per hour per IP.");
     getSongsNames();
     resize_to_fit();
 }
