@@ -196,7 +196,7 @@ var imgFileTypes = new Array(".png", ".jpg", ".jpeg");
 var audioFileTypes = new Array(".ogg", "mp3");
 
 const owner = 'Developerkaku';
-const repo = 'spotify-lool-alike';
+const repo = 'spotify-look-alike';
 const folderPath = 'songs/';
 
 //Kind of main function to  generate all the songs names form the database(github repo)
