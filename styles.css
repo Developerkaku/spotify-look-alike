@@ -179,13 +179,13 @@ body {
     cursor: pointer;
 }
 
-#footer div {
+#footer span {
     width: fit-content;
     height: fit-content;
     margin-top: 3%;
 }
 
-#footer div a {
+#footer span a {
     text-decoration: none;
 }
 
