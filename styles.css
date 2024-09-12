@@ -634,6 +634,11 @@ body {
         display: none;
     }
 
+    #player-img {
+        height: 100%;
+        border-radius: var(--borderRSecond);
+        mask-image: linear-gradient(to right, rgb(238, 224, 224) 50%, rgba(0, 0, 0, 0));
+    }
 }
 
 @media screen and (max-width: 425px) {
@@ -717,9 +722,9 @@ body {
         width: 98%;
     }
     
-    #player-img {
+/*     #player-img {
         height: 100%;
         border-radius: var(--borderRSecond);
         mask-image: linear-gradient(to right, rgb(238, 224, 224) 50%, rgba(0, 0, 0, 0));
-    }
+    } */
 }
