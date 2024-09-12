@@ -6,7 +6,8 @@
 ## Caution
 
 ```diff
-- Since the API does not use any private/public access keys, the retrieval of the files is limited.
+- Since the API does not use any private/public access keys,
+-the retrieval of the files is limited.
 - Only 60 reloads per hour per IP.
 ```
 
