@@ -295,6 +295,7 @@ body {
     width: 10rem;
     height: 10rem;
     border-radius: var(--borderR);
+    box-shadow: 1px 1px 30px black;
     overflow: clip;
 }
 
@@ -698,7 +699,6 @@ body {
     #playlistImage {
         width: 11rem;
         height: 11rem;
-        box-shadow: 1px 1px 30px black;
     }
     
     #title {
