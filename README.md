@@ -1,16 +1,27 @@
 # Spotify Look Alike
 
-- This is a static web page which is a look alike or a copy of the <a href="https://open.spotify.com/">Spotify</a> web page.
-- Git Hub API is used to retrieve the files (audio and images).
+## Overview
+A static web application that emulates the Spotify interface. Utilizes the GitHub API to fetch audio and image files, offering a simplified music streaming experience.
+
+## Live Demo
+[Live spotify-look-alike](https://developerkaku.github.io/spotify-look-alike)
 
 ## Caution
-
 ```diff
-- Since the API does not use any private/public access keys,
--the retrieval of the files is limited.
+- Since the API does not use any private/public access keys, the retrieval of the files is limited.
 - Only 60 reloads per hour per IP.
 ```
 
+## Features
+- Mimics Spotify's UI/UX
+- Plays selected tracks using GitHub-hosted audio files
+- Responsive design for various devices
+
+## Tech Stack
+- HTML
+- CSS
+- JavaScript
+- 
 ## Copyrights:
 
 -Song: Sub Urban - Cradles [NCS Release]
