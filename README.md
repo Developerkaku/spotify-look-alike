@@ -1,65 +1,16 @@
-# Spotify Look Alike
+# React + Vite
 
-## Overview
-A static web application that emulates the Spotify interface. Utilizes the GitHub API to fetch audio and image files, offering a simplified music streaming experience.
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-## Live Demo
-[Live spotify-look-alike](https://developerkaku.github.io/spotify-look-alike)
+Currently, two official plugins are available:
 
-## Caution
-```diff
-- Since the API does not use any private/public access keys, the retrieval of the files is limited.
-- Only 60 reloads per hour per IP.
-```
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
 
-## Features
-- Mimics Spotify's UI/UX
-- Plays selected tracks using GitHub-hosted audio files
-- Responsive design for various devices
+## React Compiler
 
-## Tech Stack
-- HTML
-- CSS
-- JavaScript
-- 
-## Copyrights:
+The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
 
--Song: Sub Urban - Cradles [NCS Release]
-Music provided by NoCopyrightSounds
-Free Download/Stream: http://ncs.io/Cradles
-Watch: http://youtu.be/Hn4sfC2PbhI
+## Expanding the ESLint configuration
 
--Song: TULE - Fearless [NCS Release]
-Music provided by NoCopyrightSounds
-Free Download/Stream: http://ncs.io/Fearless
-Watch: http://youtu.be/9rujCfYXhQc
-
--Song: Syn Cole - Feel Good [NCS Release]
-Music provided by NoCopyrightSounds
-Free Download/Stream: http://ncs.io/feelgood
-Watch: http://youtu.be/q1ULJ92aldE
-
--Song: Warriyo - Mortals (feat. Laura Brehm) [NCS Release]
-Music provided by NoCopyrightSounds
-Free Download/Stream: http://ncs.io/mortals
-Watch: http://youtu.be/yJg-Y5byMMw
-
--Song: Different Heaven & EH!DE - My Heart [NCS Release]
-Music provided by NoCopyrightSounds
-Free Download/Stream: http://ncs.io/myheart
-Watch: http://youtu.be/jK2aIUmmdP4
-
--Song: Cartoon, Jéja - On & On (feat. Daniel Levi) [NCS Release]
-Music provided by NoCopyrightSounds
-Free Download/Stream: http://ncs.io/onandon
-Watch: http://youtu.be/K4DyBUG242c
-
--Song: Egzod, Maestro Chives, Neoni - Royalty [NCS Release]
-Music provided by NoCopyrightSounds
-Free Download/Stream: http://ncs.io/Royalty
-Watch: http://ncs.lnk.to/RoyaltyAT/youtube
-
--Song: Lost Sky - Where We Started (feat. Jex) [NCS Release]
-Music provided by NoCopyrightSounds
-Free Download/Stream: http://ncs.io/WhereWeStarted
-Watch: http://youtu.be/U9pGr6KMdyg
+If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
