@@ -1,9 +1,9 @@
-export default function mainLeft() {
+export default function MainLeft({ s, a }) {
     return (
-        <>
+        <div className="main-left">
             <button id="close" className="navigate" onClick={() => s(0)}>
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none">
-                    <path d="M19.0005 4.99988L5.00049 18.9999M5.00049 4.99988L19.0005 18.9999" stroke-linecap="round" />
+                    <path d="M19.0005 4.99988L5.00049 18.9999M5.00049 4.99988L19.0005 18.9999" strokeLinecap="round" />
                 </svg>
             </button>
             <div className="menu">
@@ -40,7 +40,7 @@ export default function mainLeft() {
                 <div className="search">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
                         fill="none">
-                        <path d="M17.5 17.5L22 22" stroke-linecap="round"
+                        <path d="M17.5 17.5L22 22"
                         />
                         <path
                             d="M20 11C20 6.02944 15.9706 2 11 2C6.02944 2 2 6.02944 2 11C2 15.9706 6.02944 20 11 20C15.9706 20 20 15.9706 20 11Z"
@@ -59,10 +59,10 @@ export default function mainLeft() {
                         </svg>
                         Your Library
                     </div>
-                    <div className="add" onclick="a()">
+                    <div className="add" onClick={() => a()}>
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"
                             fill="none">
-                            <path d="M12 4V20M20 12H4" stroke-width="2.5" stroke-linecap="round"
+                            <path d="M12 4V20M20 12H4" strokeWidth="2.5" strokeLinecap="round"
                             />
                         </svg>
                     </div>
@@ -76,6 +76,6 @@ export default function mainLeft() {
                     <div><a href="https://open.spotify.com/" target="_blank">inspired by Spotify</a></div>
                 </div>
             </div>
-        </>
+        </div>
     )
 }

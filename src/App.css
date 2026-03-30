@@ -45,7 +45,8 @@ body {
 }
 
 #main {
-  width: 100vw;
+  /* width: 100vw; */
+  width: 100%;
   height: 98vh;
   margin-top: .5%;
   display: flex;
@@ -72,17 +73,15 @@ body {
   height: 25%;
   border-radius: var(--borderR);
   background-color: #121212;
-  background-color: white;
 }
 
 .menu div {
-  background-color: red;
   cursor: pointer;
   display: flex;
   align-items: center;
   gap: 8%;
   width: 80%;
-  height: 200%;
+  height: 20%;
   font-size: 1rem;
   opacity: .7;
   font-weight: 700;
